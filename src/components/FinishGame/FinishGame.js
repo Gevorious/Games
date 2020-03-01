@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classes from './FinishGame.css'
+
 import Button from '../UI/Button/Button'
 import Input from '../UI/Input/Input'
 import axios from 'axios'
