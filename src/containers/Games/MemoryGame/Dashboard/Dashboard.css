@@ -1,0 +1,25 @@
+.Dashboard {
+    width: 640px;
+    min-height: 345px;
+    /* align-self: center; */
+    border: 2px solid #fff;
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgba(58, 80, 82, .7);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    margin: auto;
+    /* margin-top: 0; */
+}
+
+.Dashboard button {
+    margin: auto;
+}
+
+.Timer {
+    border: 2px solid #fff;
+    background-color: rgba(58, 80, 82, .7);
+    border-bottom: none;
+    margin: auto;
+    height: 40px;
+  }

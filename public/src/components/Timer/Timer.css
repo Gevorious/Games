@@ -1,0 +1,15 @@
+.Timer {
+    width: 640px;
+    height: 40px;
+    padding-left: 20px;
+    font-size: 40px;
+    font-family: digital-clock-font;
+    font-weight: bold;
+    /* text-align: center; */
+    border-bottom: 1px solid #fff;
+    color: #21eb47;
+}
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../../fonts/digital-7.ttf');
+   };

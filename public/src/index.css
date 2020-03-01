@@ -1,0 +1,6 @@
+html, body{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 0;
+  }

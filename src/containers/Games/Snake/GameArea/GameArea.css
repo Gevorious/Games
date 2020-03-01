@@ -1,0 +1,35 @@
+.GameArea {
+    position: relative; 
+    margin: auto;
+    margin-top: 0;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #000;
+    background-color: rgba(58, 80, 82, .7);
+}
+
+.GameArea Button {
+  position: absolute;
+  top: 43%;
+  left: 43%;
+ 
+}
+
+.Score {
+  padding-left: 10px;
+  margin-bottom: 0;
+  width:  490px;
+  height: 40px;
+  border: 2px solid #000;
+  border-bottom: none;
+  background-color: rgba(58, 80, 82, .7);
+  font-size: 40px;
+  font-family: digital-clock-font;
+  font-weight: bold;
+ 
+  color: #21eb47;
+}
+@font-face{
+  font-family:'digital-clock-font';
+  src: url('../../../../fonts/digital-7.ttf');
+ };

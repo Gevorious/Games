@@ -1,3 +1,129 @@
 .Stats {
+    align-self: center;
+    margin-top: 100px;
+    padding: 0 40px 40px;
+    font-size: 24pt;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 500px;
+    min-height: 500px;
+}
+
+.ButtonDiv {
+  display: flex;
+  margin: 1%;
+  align-self: center;
+  justify-content: space-between;
+  font-size: 20pt;
+  padding: 10px;
+}
+
+.ButtonDiv>button {
+  background-color: transparent;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .7);
+  
+}
+.ButtonDiv>button:hover {
+  background-color: transparent;
+}
+
+.ButtonDiv>button:active{
+  padding-top: 6px;
+  padding-bottom: 4px;
+  box-shadow: 0 8px 2px -8px rgba(0, 0, 0, .5);
+}
+
+.Stats h1 {
     text-align: center;
 }
+
+.Stats ol {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: auto;
+    font-size: 18pt;
+    text-align: left;
+    font-weight: bold;
+    background-color: rgba(69, 82, 81, 0.76);
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.Stats ol li{
+    border: 1px solid ;
+    padding: 5px;
+}
+
+/* .Stats ol li[id= "2"]{
+    background-color: gold;
+    color:  rgba(69, 82, 81, 0.76);
+}
+
+/* .Stats ol li[id ="1"]{
+    background-color: rgb(219, 207, 207);
+    color:  rgba(69, 82, 81, 0.76);
+}
+
+.Stats ol li[id ="2"]{
+    background-color: #df8b2bcc; 
+    color:  rgba(69, 82, 81, 0.76);
+} */ 
+
+.Stats ol li strong{
+   float: right;
+   font-family: digital-clock-font; 
+   color: #21eb47;
+   font-size: 20pt;
+   font-weight: bold;
+}
+
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../../fonts/digital-7.ttf');
+   };
+
+.loader {
+    display: block;
+    margin: auto;    
+}
+   
+.Stats .ldsring {
+    justify-content: center;
+    margin: auto;
+    display: block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+.Stats .ldsring div {
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+
+.Stats .ldsring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+.Stats .ldsring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+.Stats .ldsring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

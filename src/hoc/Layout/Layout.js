@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import classes from './Layout.css'
 import Drawer from '../../components/Drawer/Drawer'
-import MemoryGame from '../../containers/MemoryGame/MemoryGame';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import  Stats  from '../../components/Stats/Stats';
+import MemoryGame from '../../containers/Games/MemoryGame/MemoryGame'
+import Snake from '../../containers/Games/Snake/Snake';
+import Gamelist from '../../containers/GameList/Gamelist';
+
 
 const withLayout = (WrappedComponent) => {
     class Layout extends Component{
@@ -27,13 +30,12 @@ const withLayout = (WrappedComponent) => {
                              openDrawer={this.openDrawer}
                             />   
                             <Switch>
-                              <Route path="/" exact component={MemoryGame} />
+                              <Route path="/" exact component={Gamelist} />
                               <Route path="/stats" component={Stats} />
+                              <Route path="/snake-game" exact component={Snake} />
+                              <Route path="/memory-game" exact component={MemoryGame} /> 
                             </Switch>
-
                         </Router>
-                         
-                        
                     </div>            
             )
         }

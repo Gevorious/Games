@@ -39,16 +39,6 @@ class MemoryGame extends Component {
             ]
         }  
 
-        // componentDidMount(){
-        //     this.setState({
-        //         counter: 0,
-        //         activeCards: [],
-        //         start: false,
-        //         isFinished: false,
-        //     })
-        // }
-            
-
     cardFlipHandler = cardId => {       
         const cards = this.state.cardContent
         const activeCards = this.state.activeCards
@@ -96,7 +86,7 @@ class MemoryGame extends Component {
         }, 1200)
           }
 
-        if(counter !== this.state.cardContent.length/2){
+        if(counter < this.state.cardContent.length/2){
         this.setState({
          activeCards,
          counter
@@ -131,10 +121,10 @@ class MemoryGame extends Component {
         })
     }
 
-    handleTime = (time) => {
+    handleTime = time => {
         return(
             this.setState({
-           time
+                time
             })
         )
     }
@@ -157,6 +147,5 @@ class MemoryGame extends Component {
         )
     }
 }
-
 
 export default MemoryGame

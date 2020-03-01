@@ -30,8 +30,9 @@ const Drawer = props => {
                             <li>Statistics</li>
                         </Link>
                         {/* <Link style={{ textDecoration: 'none' }}
+                            to={"/snake-game"}
                         >
-                            <li>About Us</li>
+                            <li>Snake</li>
                         </Link> */}
                     </ul>
                 </div>

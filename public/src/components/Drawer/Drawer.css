@@ -1,0 +1,46 @@
+.Drawer {
+    position: absolute;
+    height: 100vh;
+    width: 250px;
+    top: 0px;
+    background: rgb(255, 254, 247);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .7);
+    transition: left .5s ease-in-out;
+    z-index: 10;
+}
+
+.Drawer.open {
+    left: 0;
+}
+
+.Drawer.close {
+    left: -250px;
+}
+
+.Drawer i {
+    position: absolute;
+    background: transparent;
+    margin-left: 10px;
+    font-size: 25px;
+    color: rgb(255, 254, 247);
+    top: 0;
+    left: 250px;
+}
+
+
+.Drawer ul li{
+    display: flex;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    flex-direction: column;
+    list-style-type: none;
+    text-decoration: none;
+    color: #427791;
+   
+}
+
+.Drawer ul li:hover {
+    background: #427791;
+    color: #fff;
+ }

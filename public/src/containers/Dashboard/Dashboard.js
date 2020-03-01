@@ -2,7 +2,6 @@ import React from 'react'
 import Card from '../../components/Card/Card'
 import classes from './Dashboard.css'
 import Button from '../../components/UI/Button/Button'
-// import FinishGame from '../../components/FinishGame/FinishGame'
 import Timer from '../../components/Timer/Timer'
 
 const Dashboard = props => {
