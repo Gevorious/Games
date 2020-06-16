@@ -6,11 +6,9 @@ const Target = props => {
     return (
         <div 
         className={classes.Target}
-        style = {{left: cordinate[0] +'%', top: cordinate[1] + '%'}}
-        >
-            
+        style = {{backgroundColor: '#fff', left: cordinate[0] +'%', top: cordinate[1] + '%'}}
+        >    
         </div>
     )
 }
-
 export default Target

@@ -4,11 +4,14 @@ html body {
 }
 
 .Layout {
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: linear-gradient(#4e88a6, #fff);
-    color: #fff;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(#838B83, #fff);
+    /* background-size: cover; */
+    color: #36362e;
+    font-family: Verdana, sans-serif;
 }
+

@@ -1,4 +1,47 @@
 .Snake {
+
+}
+
+.controls { 
+  display: none;
+  position: relative;
   margin: auto;
-  margin-top: 100px;
+  margin-right: 0;
+  width: 250px;
+  height: 150px;
+  text-align: center;
+}
+
+.controls i{
+  position: absolute;
+  text-align: center;
+  font-size: 50px;
+  color: #FFFFF0;
+  opacity: .5;
+}
+.controls i:nth-child(1) {
+    top: 40px;
+    left: 120px;
+}
+
+.controls i:nth-child(2) {
+  top: 0px;
+  left: 160px;
+}
+
+.controls i:nth-child(3) {
+  top: 40px;
+  left: 205px;
+}
+
+.controls i:nth-child(4) {
+  top: 82px;
+  left: 160px;
+}
+
+
+@media (max-width: 768px){
+  .controls { 
+    display: block;
+  }
 }

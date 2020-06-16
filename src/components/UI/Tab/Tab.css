@@ -1,0 +1,20 @@
+.Tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    color: #36362e;
+    border-bottom: 1px solid #36362e;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+.active {
+    border: 1px solid #36362e;
+    background-color: #CDCDC1;
+    padding: 9px;
+    border-bottom: none;
+   }

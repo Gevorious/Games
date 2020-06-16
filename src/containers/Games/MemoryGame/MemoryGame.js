@@ -6,132 +6,115 @@ import FinishGame from '../../../components/FinishGame/FinishGame'
 
 class MemoryGame extends Component {
 
+        counter = 0;
+        turn = true
+        cardCount = 24
+
+        generateCards =(length)=> {
+            const cards = []
+            let imgNum = 1
+            let id = 1
+            for(let i=0; i<length; i++){
+                cards.push( {img: `img_${imgNum}`, id: id, cardState: 'Back'})
+                id++
+                if(i%2===1){ imgNum++}
+            }
+            return cards
+        }
+
         state={
-            counter: 0,
             time: null,
             activeCards: [],
             start: false,
             stopTimer: true,
             isFinished: false,
-            cardContent: [
-                {letter: 'A', id: 1, cardState: 'Back',},
-                {letter: 'A', id: 2, cardState: 'Back',},
-                {letter: 'B', id: 3, cardState: 'Back',},
-                {letter: 'B', id: 4, cardState: 'Back',},
-                {letter: 'C', id: 5, cardState: 'Back',},
-                {letter: 'C', id: 6, cardState: 'Back',},
-                {letter: 'D', id: 7, cardState: 'Back',},
-                {letter: 'D', id: 8, cardState: 'Back',}, 
-                {letter: 'E', id: 9, cardState: 'Back',},
-                {letter: 'E', id: 10, cardState: 'Back',},
-                {letter: 'F', id: 11, cardState: 'Back',},
-                {letter: 'F', id: 12, cardState: 'Back',},
-                {letter: 'G', id: 13, cardState: 'Back',},
-                {letter: 'G', id: 14, cardState: 'Back',},
-                {letter: 'H', id: 15, cardState: 'Back',},
-                {letter: 'H', id: 16, cardState: 'Back',},
-                {letter: 'I', id: 17, cardState: 'Back',},
-                {letter: 'I', id: 18, cardState: 'Back',},
-                {letter: 'J', id: 19, cardState: 'Back',},
-                {letter: 'J', id: 20, cardState: 'Back',},
-                {letter: 'K', id: 21, cardState: 'Back',},
-                {letter: 'K', id: 22, cardState: 'Back',},
-                {letter: 'L', id: 23, cardState: 'Back',},
-                {letter: 'L', id: 24, cardState: 'Back',},          
-            ]
+            cardContent: this.generateCards(this.cardCount)
         }  
 
-    cardFlipHandler = cardId => {       
-        const cards = this.state.cardContent
-        const activeCards = this.state.activeCards
-
+    cardFlipHandler = cardId => { 
+       const cards = [...this.state.cardContent]
+       const activeCards = [...this.state.activeCards]
+      
         cards.forEach(card => {
+
             if(card.id === cardId && card.cardState === 'Back' && activeCards.length < 2){
                 card.cardState = 'Front'
                 activeCards.push(card)
-
-                if(activeCards.length === 2){
-                    this.checkMatching(activeCards)
-                }
              }                
         })
 
-        this.setState({
-            cardContent: cards,
-        })
+       this.setState({ cardContent: cards, activeCards })
+
+        if(activeCards.length === 2 && this.turn){
+            this.turn=false
+            this.checkMatching(activeCards)
+        }
+
     }
 
-    shuffleCards = () => {
+    shuffleCards = () => { 
+        const cards = [...this.state.cardContent].sort(() => Math.random() - 0.5)
+        cards.forEach(card => { card.cardState = 'Back'}) 
        
-        const cards = this.state.cardContent.sort(() => Math.random() - 0.5)
-        cards.forEach(card => { card.cardState = 'Back'})
-        
-        return(
-        this.setState({
-            stopTimer: false,
-            isFinished: false,
-            cardContent: cards,
-            start: true
-        })
-        )
+            this.setState({
+                stopTimer: false,
+                isFinished: false,
+                cardContent: cards,
+                start: true
+                })
+            
     }
 
     checkMatching = activeCards => {
-        let counter = this.state.counter
-
-        if(activeCards[0].letter === activeCards[1].letter){         
-            activeCards = []
-            counter++
+      
+        if(activeCards[0].img === activeCards[1].img){         
+            this.setState({ activeCards: [] })
+            this.counter++
+            this.turn=true  
         } else {
          const timeout = window.setTimeout(()=>{
              this.flipBackHandler(activeCards)
+             this.turn=true  
              window.clearTimeout(timeout)
         }, 1000)
           }
 
-        if(counter < this.state.cardContent.length/2){
-        this.setState({
-         activeCards,
-         counter
-         })
-        }  else{
+        if(this.counter >= this.state.cardContent.length/2){
             this.setState({stopTimer: true})
             const timeout2 = window.setTimeout(()=>{
-                this.finishGame(activeCards)
+                this.finishGame()
                 window.clearTimeout(timeout2)
            }, 1200)
         }
+       
     }
     
     flipBackHandler = activeCards => {
-        const cards = this.state.cardContent
+        const cards = [...this.state.cardContent]
 
         cards.forEach(card => {
             if(card.id === activeCards[0].id || card.id === activeCards[1].id){
                 card.cardState = 'Back'
             }
         })
+
         this.setState({
             cardContent: cards,
             activeCards: []
         })
     } 
 
-    finishGame = (activeCards) => {
+    finishGame = () => {
         this.setState({
             isFinished: true,
-            activeCards,
-            counter: 0,
+            activeCards: [],
             start:false
-        })    
+        })  
+        this.counter = 0  
     }
 
     handleTime = time => {
-        return(
-            this.setState({
-                time
-            })
-        )
+            this.setState({ time })      
     }
    
     render() {
@@ -139,7 +122,7 @@ class MemoryGame extends Component {
             <div className={classes.MemoryGame}>                       
                {
                this.state.isFinished 
-               ? <FinishGame startNew={this.shuffleCards} time={this.state.time} />
+               ? <FinishGame game={"Memory_Game"} startNew={this.shuffleCards} time={this.state.time} />
                : <Dashboard
                  stopTimer={this.state.stopTimer}
                  cardList={this.state.cardContent}

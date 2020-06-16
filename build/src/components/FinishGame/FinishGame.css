@@ -1,0 +1,35 @@
+.FinishGame {
+    margin: auto;
+    padding: 30px 40px;
+    margin-top: 120px;
+    width: 700px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+ 
+    border: 1px solid #fff;
+}
+
+.FinishGame p {
+    margin: 5px;
+    text-align: center;
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+.FinishGame Button {
+    margin-left: 20px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.FinishGame p strong{
+    font-family: digital-clock-font;
+}
+
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../../fonts/digital-7.ttf');
+   };
+
+  

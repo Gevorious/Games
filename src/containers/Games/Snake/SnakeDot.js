@@ -6,8 +6,8 @@ const SnakeDot = props => {
     content = props.cordinates.map((cordinate, index) => {
     return  (<div 
             key={index}
+            style = {{ left: cordinate[0] +'%', top: cordinate[1] + '%'}}
             className={classes.SnakeDot}
-            style = {{left: cordinate[0] +'%', top: cordinate[1] + '%'}}
             >
             </div>)
     })

@@ -1,15 +1,13 @@
 .Dashboard {
     width: 640px;
     min-height: 345px;
-    /* align-self: center; */
-    border: 2px solid #fff;
+    border: 2px solid #36362e;
     border-radius: 0px 0px 5px 5px;
-    background-color: rgba(58, 80, 82, .7);
+    background-color: #8B8B83;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; 
     margin: auto;
-    /* margin-top: 0; */
+    perspective: 800px;
 }
 
 .Dashboard button {
@@ -17,9 +15,33 @@
 }
 
 .Timer {
-    border: 2px solid #fff;
-    background-color: rgba(58, 80, 82, .7);
+    width: 630px;
+    padding-left: 10px;
+    border: 2px solid #36362e;
+    background-color: #8B8B83;
     border-bottom: none;
     margin: auto;
+    margin-top: 100px;
     height: 40px;
   }
+
+@media (max-width: 1366px) {
+  .Dashboard{
+    width: 480px;
+    min-height: 445px;
+  }
+  .Timer {
+    width: 470px;
+  }
+}
+@media (max-width: 480px) {
+  .Dashboard{
+    width: 324px;
+    min-height: 300px;
+   
+  }
+  .Timer {
+    margin-top: 50px;
+    width: 314px;
+  }
+}

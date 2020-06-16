@@ -1,0 +1,9 @@
+.Minesweeper {
+   
+}
+
+@media (max-width: 1366px){
+    .MemoryGame {
+        margin-top: 50px;
+    }
+}

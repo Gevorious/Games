@@ -1,6 +1,4 @@
-html, body{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
+.Index{
+   padding: 0;
     margin: 0;
   }

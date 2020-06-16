@@ -6,29 +6,27 @@ import Input from '../UI/Input/Input'
 import axios from 'axios'
 
 import Validate from '../../Auxillary/Validation/Validation'
+import { Redirect } from 'react-router'
 
 class FinishGame extends Component  {
 
-    constructor(props){
-        super(props)
-        this.state = {
+        state = {
             data: {
                 firstName: '',
                 lastName: '',
                 result: ''
             },
+            showStats: false,
             isValid: false
         }
-    }
+   
     
     personInfoHandler = (e) => {
-
         e = e || window.event 
         
-         let data = this.state.data
+         const data = {...this.state.data}
          let isValid = this.state.isValid
          data.result = this.props.score || this.props.time
-
         if(e.target.name ==='First Name:'){
          data.firstName = e.target.value.trim()
         }
@@ -36,16 +34,19 @@ class FinishGame extends Component  {
          data.lastName = e.target.value.trim()
         }
 
-        isValid = Validate(this.state.data.firstName, this.state.data.lastName)
-        this.setState({
-            data, isValid
-        })
+        isValid = Validate(data.firstName, data.lastName)
+        this.setState({ data, isValid })
     }
   
     sendData = () => {  
-        const resultObj = this.props.time ? "personList" : "snakeGame"
+        const game = this.props.game 
 
-        axios.post(`https://memorino-8206d.firebaseio.com/${resultObj}.json`, this.state.data)
+        axios.post(`https://fun-games-46704.firebaseio.com/${game}.json`, this.state.data)
+        .then(res=>{
+            if(res.status === 200){
+                this.setState({showStats: true})
+            }
+        })
         .catch(error => {
         console.log(error)
         })
@@ -53,18 +54,26 @@ class FinishGame extends Component  {
 
     render(){
         const result = this.props.time || this.props.score
-        return (   
-            <div className={classes.FinishGame}>
-                <p>Game Over!</p>
-                <b>Your result is <strong style={{color: '#21eb47'}}>{ result }</strong>{this.props.time ? ' s!' : ' pts!'}</b>
-                
-                <Input name="First Name:"  onChange={this.personInfoHandler}  />
-                <Input name="Last Name:" onChange={this.personInfoHandler} />
-                <div>
-                <Button onClick={this.props.startNew}>New Game</Button>
-                <Button onClick={this.sendData} disabled={!this.state.isValid}>Save Results</Button>
+
+        return (
+            <>
+            {!this.state.showStats?   
+            (<div className={classes.FinishGame}>
+                <h1>Game Over!</h1>
+                <h2>Your result is <strong>{ result }</strong>{this.props.time ? ' s!' : ' pts!'}</h2>
+                <div className={classes.inputs}>
+                    <Input name="First Name:"  onChange={this.personInfoHandler}  />
+                    <Input name="Last Name:" onChange={this.personInfoHandler} />
+                    <div>
+                        <Button onClick={this.props.startNew}>New Game</Button>
+                        <Button onClick={this.sendData} disabled={!this.state.isValid}>Save Results</Button>
+                    </div>
                 </div>
-            </div>
+                
+               
+            </div>): <Redirect to={{ pathname: "/stats", state: {game: this.props.game} }} /> 
+            } 
+            </>
     )}
     
 }

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import classes from './Snake.css'
 
@@ -28,6 +27,11 @@ class Snake extends Component {
             [2, 0],
         ]
     }
+
+    componentWillUnmount(){
+        document.onkeydown = null
+        window.clearInterval(interval)
+    }
    
     startGame = () => {
      this.setState({start: true,  isFinished: false, score: 0,}) 
@@ -36,22 +40,22 @@ class Snake extends Component {
     }
 
     setDirection = (e) => {   
-        e.preventDefault()
-        if(e  && tick === true){
-        e = e || window.event
-        switch(e.keyCode){
+        const direction = e.keyCode || e
+        if(direction  && tick === true){
+
+        switch(direction){
             case 37:
-            if(this.state.direction !== 39){ this.setState({ direction: e.keyCode }) 
+            if(this.state.direction !== 39){ this.setState({ direction }) 
              }
             break;
             case 38:
-            if(this.state.direction !== 40){ this.setState({ direction: e.keyCode }) }
+            if(this.state.direction !== 40){ this.setState({ direction }) }
             break;
             case 39:
-            if(this.state.direction !== 37){ this.setState({ direction: e.keyCode }) }
+            if(this.state.direction !== 37){ this.setState({ direction }) }
             break;
             case 40:
-            if(this.state.direction !== 38){ this.setState({ direction: e.keyCode }) }
+            if(this.state.direction !== 38){ this.setState({ direction }) }
             break;
             default:
             }     
@@ -82,12 +86,19 @@ class Snake extends Component {
 
     checkTargetHit = (snakeHead) => {
         if(snakeHead[0] === this.state.targetCords[0] && snakeHead[1] === this.state.targetCords[1]){
-            let speed = 30
-            let score = this.state.score + 100
 
-            if(this.state.speed > 30){ speed = this.state.speed - 5}
+            let { speed } = this.state
+            this.setState(({ score }) => {
+                return  { score: score + 100 }
+            })
 
-            this.setState({ targetCords: this.getTargetCords(), speed, score })
+            if(speed > 30){ 
+                this.setState(({speed}) => {
+                    return { speed: speed - 5 }
+                })
+            }
+
+            this.setState({ targetCords: this.getTargetCords() })
             
            window.clearInterval(interval)
            interval = window.setInterval(this.onKeyDown, this.state.speed)
@@ -133,9 +144,7 @@ class Snake extends Component {
             snakeCords.shift()
            }
             snakeCords.push(snakeHead)
-            this.setState({
-                cordinates: snakeCords
-              })
+            this.setState({ cordinates: snakeCords })
               tick = true
         }else {
             window.clearInterval(interval)
@@ -152,16 +161,23 @@ class Snake extends Component {
         return (
                 <div className={classes.Snake}>
                     {!this.state.isFinished
-                     ? <GameArea 
-                     setDirection={this.setDirection}
-                     score={this.state.score}
-                     cordinates={this.state.cordinates}
-                     start={this.state.start}
-                     handleTime={this.handleTime}
-                     targetCords={this.state.targetCords}
-                     startGame={this.startGame}
+                    ?<> <GameArea 
+                       setDirection={this.setDirection}
+                       score={this.state.score}
+                       cordinates={this.state.cordinates}
+                       start={this.state.start}
+                       handleTime={this.handleTime}
+                       targetCords={this.state.targetCords}
+                       startGame={this.startGame}
                     />
-                     : <FinishGame startNew={this.startGame} score={this.state.score} />
+                    <div className={classes.controls}>
+                        <i className="fa fa-arrow-left" onTouchStart={() => this.setDirection(37)}></i>
+                        <i className="fa fa-arrow-up" onTouchStart={() => this.setDirection(38)}></i>
+                        <i className="fa fa-arrow-right" onTouchStart={() => this.setDirection(39)}></i>
+                        <i className="fa fa-arrow-down" onTouchStart={() => this.setDirection(40)}></i>
+                    </div>
+                    </>
+                     : <FinishGame game={"Snake"} startNew={this.startGame} score={this.state.score} />
                     }
                 </div>
         )

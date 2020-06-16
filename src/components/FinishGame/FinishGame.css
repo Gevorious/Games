@@ -1,36 +1,75 @@
 .FinishGame {
     margin: auto;
-    padding: 30px 40px;
-    width: 500px;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 100px;
+    width: 540px;
+    min-height: 530px;
+    background-color: #FFFFF0;
     border: 2px solid #fff;
 }
 
-.FinishGame>p,b {
-    margin: 5px;
+.FinishGame>h1,h2 {
+    display: block;
     text-align: center;
-    font-size: 32pt;
     font-weight: bold;
 }
-.FinishGame>b {
-    margin-bottom: 60px;
+.FinishGame>h2 {
+    margin-bottom: 30px;
 }
 
-.FinishGame Button {
-    margin-left: 20px;
+.FinishGame>h2>strong{
+    font-weight: 900;
+    text-decoration: underline;
+    font-family: digital-clock-font;
+}
+
+.FinishGame button {
+    margin-right: 10px;
     height: 30px;
     font-size: 20px;
 }
 
-.FinishGame p strong{
-    font-family: digital-clock-font;
+.inputs{
+    display: flex;
+    background-color: #CDCDC1;
+    border: 1px solid #36362e;
+    flex-direction: column;
+    width: 400px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
 }
 
 @font-face{
     font-family:'digital-clock-font';
     src: url('../../fonts/digital-7.ttf');
-   };
+    }
 
+@media (max-width: 1366px) {
+    .FinishGame{
+      width: 400px;
+      min-height: 400px;
+    }
+    .inputs{
+        width: 300px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .FinishGame{
+      width: 320px;
+      min-height: 400px;
+      padding: 0;
+    }
+
+    .inputs{
+        width: 250px;
+        padding: 10px;
+    }
+
+    .FinishGame button {
+        font-size: 16px;
+    }
+}
   

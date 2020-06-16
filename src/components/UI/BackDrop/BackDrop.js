@@ -6,8 +6,7 @@ const BackDrop = props => {
         <div
         onClick={props.onClick}
         className={classes.BackDrop}
-        >
-            
+        >       
         </div>
     )
 }

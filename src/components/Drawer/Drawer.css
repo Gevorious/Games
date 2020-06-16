@@ -1,7 +1,8 @@
 .Drawer {
+    display: none;
     position: absolute;
     height: 100vh;
-    width: 250px;
+    width: 200px;
     top: 0px;
     background: rgb(255, 254, 247);
     box-shadow: 0px 0px 3px rgba(0, 0, 0, .7);
@@ -14,17 +15,18 @@
 }
 
 .Drawer.close {
-    left: -250px;
+    left: -200px;
 }
 
 .Drawer i {
     position: absolute;
     background: transparent;
+    margin: 5px;
     margin-left: 10px;
     font-size: 25px;
     color: rgb(255, 254, 247);
     top: 0;
-    left: 250px;
+    left: 200px;
 }
 
 
@@ -36,11 +38,17 @@
     flex-direction: column;
     list-style-type: none;
     text-decoration: none;
-    color: #427791;
-   
+    color: #36362e;
+    user-select: none;  
 }
 
 .Drawer ul li:hover {
-    background: #427791;
+    background: #8B8B83;
     color: #fff;
+ }
+
+ @media (max-width: 640px){
+    .Drawer{
+        display: block;
+    }
  }

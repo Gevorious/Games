@@ -1,86 +1,73 @@
 .Stats {
-    align-self: center;
+    max-width: 650px;
+    margin: auto;
     margin-top: 100px;
-    padding: 0 40px 40px;
-    font-size: 24pt;
-    border: 1px solid;
+    padding: 30px 30px;
+    background-color: #FFFFF0;
+    border: 1px solid #36362e;
     border-radius: 5px;
-    width: 500px;
-    min-height: 500px;
 }
 
-.ButtonDiv {
+.TabsDiv {
   display: flex;
-  margin: 1%;
-  align-self: center;
-  justify-content: space-between;
-  font-size: 20pt;
-  padding: 10px;
 }
 
-.ButtonDiv>button {
-  background-color: transparent;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .7);
-  
-}
-.ButtonDiv>button:hover {
-  background-color: transparent;
-}
-
-.ButtonDiv>button:active{
-  padding-top: 6px;
-  padding-bottom: 4px;
-  box-shadow: 0 8px 2px -8px rgba(0, 0, 0, .5);
+.TabsDiv>div {
+  width: 33%;
+  padding-bottom: 10px;
+  font-size: 20px;
 }
 
 .Stats h1 {
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .Stats ol {
-    border: 1px solid;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+    border: 1px solid #36362e;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 40px 80px;
     margin: auto;
-    font-size: 18pt;
-    text-align: left;
     font-weight: bold;
-    background-color: rgba(69, 82, 81, 0.76);
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
-    color: #fff;
+    font-size: 18px;
+    background-color: #CDCDC1;
+    box-shadow: 0 8px 2px -8px rgba(0, 0, 0, 0.3);
+    color: #36362e;
+    text-shadow: 1px 1px 1px #36362e;
 }
 
 .Stats ol li{
-    border: 1px solid ;
+    padding-top: 10px;
+    min-width: 400px;
+    border-bottom: 1px solid #36362e;
     padding: 5px;
+    vertical-align: middle;
 }
 
-/* .Stats ol li[id= "2"]{
-    background-color: gold;
-    color:  rgba(69, 82, 81, 0.76);
+.Stats ol li[id= "0"]{
+   color:  #ffffff;
 }
 
-/* .Stats ol li[id ="1"]{
-    background-color: rgb(219, 207, 207);
-    color:  rgba(69, 82, 81, 0.76);
+.Stats ol li[id ="1"]{
+   color:   #ffffff;
 }
 
 .Stats ol li[id ="2"]{
-    background-color: #df8b2bcc; 
-    color:  rgba(69, 82, 81, 0.76);
-} */ 
+   color: #ffffff;
+}  
 
 .Stats ol li strong{
    float: right;
    font-family: digital-clock-font; 
-   color: #21eb47;
-   font-size: 20pt;
+   color: #36362e;
+   font-size: 24px;
    font-weight: bold;
 }
-
-@font-face{
-    font-family:'digital-clock-font';
-    src: url('../../fonts/digital-7.ttf');
-   };
 
 .loader {
     display: block;
@@ -103,10 +90,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #fff;
+    border: 8px solid #36362e;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: #36362e transparent transparent transparent;
   }
 
 .Stats .ldsring div:nth-child(1) {
@@ -118,6 +105,73 @@
 .Stats .ldsring div:nth-child(3) {
     animation-delay: -0.15s;
   }
+
+  @media (max-width: 1366px) {
+    .Stats{
+      margin-top: 50px;
+      padding: 20px;
+    }
+   
+    .Stats ol li{
+      min-width: 260px;
+      font-size: 14px;
+    }
+
+    .Stats ol li strong{
+    font-size: 16px;
+    }
+
+    .TabsDiv>div {
+      width: 33%;
+      padding-bottom: 10px;
+      font-size: 16px;
+    }
+}
+
+  @media (max-width: 640px) {
+    .Stats{
+    width: 340px;
+    padding: 10px 10px;
+    }
+    
+    .Stats ol {
+      min-width: 218px;
+      padding: 60px;
+      font-size: 12px;
+      margin: auto;
+  }
+    
+    .ButtonDiv button{
+      font-size: 16px;
+    }
+
+    .Stats ol li{
+      padding-top: 5px;
+      min-width: 200px;
+      font-size: 12px;
+  }
+
+    .Stats ol li strong{
+      font-size: 16px;
+  }
+
+  .TabsDiv>div {
+    width: 50%;
+    padding-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .Stats h1 {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+}
+  
+  @font-face{
+      font-family:'digital-clock-font';
+      src: url('../../fonts/digital-7.ttf');
+  }
+
   @keyframes lds-ring {
     0% {
       transform: rotate(0deg);
@@ -126,4 +180,5 @@
       transform: rotate(360deg);
     }
   }
+
   

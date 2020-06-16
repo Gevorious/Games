@@ -1,15 +1,14 @@
    .Button {
-      padding: 5px 10px;
-      margin-top: 10px;
+      padding: 2px 5px;
       width: fit-content;
       font-size: 35px;
-      font-family: Open Sans;
-      font-weight: 100;
-      color: rgb(248, 247, 247);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: 500;
+      color: #36362e;
       text-shadow: 1px 1px 2px #000000;
       text-align: center;
       border-radius: 5px;
-      background: #427791;
+      background: #EEEEE0;
       text-decoration: none;
       cursor: pointer;
      
@@ -19,7 +18,7 @@
    }
 
    .Button:hover {
-    background: #4e88a6;
+    background: #CDCDC1;
     color: #fff;
    }
 

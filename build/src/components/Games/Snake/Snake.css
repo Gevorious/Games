@@ -1,0 +1,15 @@
+.Snake {
+    position: relative; 
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    border: 2px solid #000;
+    background-color:  rgba(69, 82, 81, 0.76);
+}
+
+.Snake Button {
+  position: absolute;
+  top: 43%;
+  left: 43%;
+ 
+}

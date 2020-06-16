@@ -1,11 +1,11 @@
 .Timer {
-    width: 100%;
-    padding-left: 20px;
+    display: inline-block;
+    width: 250px;
     font-size: 40px;
     font-family: digital-clock-font;
     font-weight: bold;
    
-    color: #21eb47;
+    color: #FFFFF0;
 }
 @font-face{
     font-family:'digital-clock-font';

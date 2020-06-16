@@ -11,13 +11,11 @@ const Dashboard = props => {
         content = <Button onClick={props.shuffleCards}>Start</Button>
       
         } else{   
-             content = props.cardList.map((card, index) =>{ 
+             content = props.cardList.map(card =>{ 
                         return <Card 
-                        key={index}
-                        id={card.id}
-                        content={card.letter}
+                        key={card.id}
                         cardFlip={props.cardFlip}
-                        cardState={card.cardState}
+                        { ...card }
                         />
                     })
             }   
@@ -26,7 +24,7 @@ const Dashboard = props => {
             <>
                 <div className={classes.Timer}>{!props.stopTimer ? <Timer handleTime={props.handleTime}/> : null }</div>
                 <div className={classes.Dashboard}>
-                    {content}
+                    { content }
                 </div>
                 
             </>

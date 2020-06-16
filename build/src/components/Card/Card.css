@@ -1,0 +1,35 @@
+.Card {
+    width: 66px;
+    height: 98px;
+    font-weight: bolder;
+    font-size: 58pt;
+    text-align: center;
+    margin: 5px 5px;
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transform-style: preserve-3d;
+}
+
+.Card:hover {
+    margin-top: 4px;
+    margin-left: 4px;
+    width: 67px;
+    height: 99px;
+    border: 2px solid rgba(250, 245, 230, 0.7);
+}
+
+.Back {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    background-image: url('../../images/card/card_back.png');
+    transform: rotateY(180deg);
+    transition: transform .3s ease;
+}
+
+.Front {
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(235, 226, 186, 0.87);
+    transition: transform .3s ease;
+}
+

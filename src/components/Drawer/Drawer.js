@@ -16,8 +16,8 @@ const Drawer = props => {
     return (
             <>
                 <div className={cls.join(' ')}>
-                    <i onClick={props.openDrawer} className={clsButton.join(' ')}></i>
-                    <ul onClick={props.openDrawer}>
+                    <i onClick={props.toggleDrawer} className={clsButton.join(' ')}></i>
+                    <ul onClick={props.toggleDrawer}>
                         <Link style={{ textDecoration: 'none' }}
                               to={"/"}
                         >
@@ -29,14 +29,9 @@ const Drawer = props => {
                         >
                             <li>Statistics</li>
                         </Link>
-                        {/* <Link style={{ textDecoration: 'none' }}
-                            to={"/snake-game"}
-                        >
-                            <li>Snake</li>
-                        </Link> */}
                     </ul>
                 </div>
-              {props.isOpen ? <BackDrop  onClick={props.openDrawer}/> : null}
+              {props.isOpen ? <BackDrop  onClick={props.toggleDrawer}/> : null}
             </>
     )
 }

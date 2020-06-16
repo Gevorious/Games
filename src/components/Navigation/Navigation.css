@@ -1,11 +1,12 @@
 .Navigation {
     display: flex;
     flex-direction: row;
+    max-width: 400px;
 }
 
 .Navigation li {
     list-style: none;
-    width: 350px;
+    width: 100%;
 }
 
 .Navigation  li {
@@ -14,8 +15,9 @@
     user-select: none;
 }
 
-.Navigation  li a{
-    color: #fff;
+.Navigation  li a {
+    font-weight: 500;
+    color: #36362e;
     display: flex;
     list-style-type: none;
     padding: 1vmax;

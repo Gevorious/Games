@@ -8,6 +8,7 @@ const Gamelist = () => {
         <div className={classes.GameList}>
             <Navigation url="/memory-game" >Memory Card Game</Navigation>
             <Navigation url="/snake-game" >Snake Game</Navigation> 
+            <Navigation url="/minesweeper" >Minesweeper</Navigation> 
         </div>
     )
 }
