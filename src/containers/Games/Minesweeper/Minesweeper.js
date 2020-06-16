@@ -6,7 +6,7 @@ import FinishGame from '../../../components/FinishGame/FinishGame'
 class Minesweeper extends Component {
 
     cellCount = 384
-    mineCount = 75
+    mineCount = 70
     style='{bacgroundColor: "red"}'
 
     generateCells = (length) => {
