@@ -33,13 +33,13 @@
 
 @media (max-width: 480px){
     .Card, .Back {
-        width: 40px;
-        height: 61px;
+        width: 43px;
+        height: 66px;
     }
 
     .Back:hover {
-        width: 41px;
-        height: 62px;
+        width: 44px;
+        height: 67px;
     }
 }
 

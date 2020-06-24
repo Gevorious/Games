@@ -4,26 +4,34 @@ import classes from './GameArea.css'
 import SnakeDot from '../SnakeDot'
 import Button from '../../../../components/UI/Button/Button'
 import Target from '../Target'
+import Header from '../../../../components/Header/Header'
 
 
 const GameArea = props => {
-    
+
+    let content = null
+    if (!props.start){
+        content = <Button onClick={props.startGame}>Start</Button>
+        } else{
+            content = <> 
+                        <Target cordinate ={props.targetCords} />
+                        <SnakeDot cordinates={props.cordinates} />
+                      </>
+                       
+        }
     return (
-        <>
-        <div className={classes.Score}> {props.start ? `Score - ${props.score}` : null }</div>
-       
         <div className={classes.GameArea}>
-           {
-           !props.start
-            ?<Button onClick={props.startGame}>Start</Button>
-            :<>
-            <Target cordinate ={props.targetCords} />
-            <SnakeDot cordinates={props.cordinates} />
-            </>
-           }
+            <Header text="Game Over" 
+                   end={props.isFinished}
+                   start={props.start} 
+                   startGame={props.startGame} 
+                   saveResults={ props.saveResults}>
+                 <div className={classes.Score}> {props.start ? `Score - ${props.score}` : null } </div>
+            </Header>
+            <div className={classes.Content}>
+               { content }
+            </div>
         </div>
-        
-        </>
     )
 }
 

@@ -1,25 +1,35 @@
 .MineField {
-    display: flex;
-   
-    width: 600px;
-    height: 400px;
-    border: 2px solid #36362e;
+    /* display: flex; */
+    margin: auto;
+    margin-top: 100px;
+    width: 604px;
+    height: 444px;
     border-radius: 0px 0px 5px 5px;
     background-color: #8B8B83;
     flex-wrap: wrap;
-    margin: auto;
+   
     perspective: 800px;
 }
 
+.Content {
+  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #36362e;
+}
+
+button {
+  margin: auto;
+}
+
 .TimerDiv {
-    width: 590px;
-    border: 2px solid #36362e;
+    width: 600px;
     background-color: #8B8B83;
+    border: 2px solid #36362e;
     border-bottom: none;
     margin: auto;
-    margin-top: 100px;
+    
     height: 40px;
-    padding-left: 10px;
     overflow: hidden;
     color:  #EEEEE0;
     font-size: 32px;
@@ -33,7 +43,6 @@
 
   .TimerDiv>button{
     margin-top: 5px;
-    margin-right: 10px;
     font-size: 21px; 
     float: right; 
   }

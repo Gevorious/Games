@@ -18,6 +18,7 @@ class Snake extends Component {
     state = {
         start: false,
         isFinished: false,
+        saveResults: false,
         score: 0,
         speed: 250,
         direction: 39,
@@ -34,9 +35,23 @@ class Snake extends Component {
     }
    
     startGame = () => {
-     this.setState({start: true,  isFinished: false, score: 0,}) 
+     this.setState({start: true,
+                    isFinished: false, 
+                    score: 0, 
+                    saveResults: false,
+                    speed: 250,
+                    direction: 39,
+                    cordinates: [
+                            [0, 0],
+                            [2, 0],
+                        ],
+        }) 
      interval = window.setInterval(this.onKeyDown, this.state.speed)
      document.onkeydown = this.setDirection
+    }
+
+    saveResults = () => {
+        this.setState({saveResults: true})
     }
 
     setDirection = (e) => {   
@@ -108,13 +123,6 @@ class Snake extends Component {
 
     gameOver() {
         this.setState({
-            start: false,
-            speed: 250,
-            direction: 39,
-            cordinates: [
-                [0, 0],
-                [2, 0],
-            ],
             isFinished: true,
         }) 
         document.onkeydown = null
@@ -148,19 +156,15 @@ class Snake extends Component {
               tick = true
         }else {
             window.clearInterval(interval)
-            const timeout = window.setTimeout(()=>{
-                this.gameOver()
-                window.clearTimeout(timeout)
-           }, 1200)
-         
-        }
+            this.gameOver()
+            }
            
     }
 
     render() {
         return (
                 <div className={classes.Snake}>
-                    {!this.state.isFinished
+                    {!this.state.saveResults
                     ?<> <GameArea 
                        setDirection={this.setDirection}
                        score={this.state.score}
@@ -169,6 +173,8 @@ class Snake extends Component {
                        handleTime={this.handleTime}
                        targetCords={this.state.targetCords}
                        startGame={this.startGame}
+                       saveResults={this.saveResults}
+                       isFinished={this.state.isFinished}
                     />
                     <div className={classes.controls}>
                         <i className="fa fa-arrow-left" onTouchStart={() => this.setDirection(37)}></i>

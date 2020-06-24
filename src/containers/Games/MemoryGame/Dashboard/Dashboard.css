@@ -1,47 +1,37 @@
 .Dashboard {
-    width: 640px;
-    min-height: 345px;
-    border: 2px solid #36362e;
-    border-radius: 0px 0px 5px 5px;
+    width: 644px;
     background-color: #8B8B83;
-    display: flex;
-    flex-wrap: wrap;
     margin: auto;
+    margin-top: 100px;
     perspective: 800px;
 }
 
-.Dashboard button {
+.Content {
+  min-height: 345px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #36362e;
+}
+
+button {
     margin: auto;
 }
 
-.Timer {
-    width: 630px;
-    padding-left: 10px;
-    border: 2px solid #36362e;
-    background-color: #8B8B83;
-    border-bottom: none;
-    margin: auto;
-    margin-top: 100px;
-    height: 40px;
-  }
-
 @media (max-width: 1366px) {
   .Dashboard{
-    width: 480px;
-    min-height: 445px;
+    width: 484px;
   }
-  .Timer {
-    width: 470px;
+
+  .Content{
+    min-height: 445px;
   }
 }
 @media (max-width: 480px) {
   .Dashboard{
-    width: 324px;
-    min-height: 300px;
-   
+    width: 346px;
   }
-  .Timer {
-    margin-top: 50px;
-    width: 314px;
+
+  .Content{
+    min-height: 320px;
   }
 }

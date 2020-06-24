@@ -1,10 +1,11 @@
 .GameArea {
     display: flex;
-    position: relative; 
+    flex-direction: column;
     margin: auto;
-    width: 500px;
-    height: 500px;
-    border: 2px solid #36362e;
+    margin-top: 100px;
+    width: 504px;
+    height: 540px;
+    /* border: 2px solid #36362e; */
     background-color: #8B8B83;
 }
 
@@ -12,15 +13,18 @@
   margin: auto;
 }
 
+.Content {
+  display: flex;
+  position: relative; 
+  width: 500px;
+  height: 500px;
+  border: 2px solid #36362e;
+}
+
 .Score {
   padding-left: 10px;
-  margin: auto;
-  margin-top: 100px;
-  width:  490px;
   height: 40px;
-  border: 2px solid #36362e;
   border-bottom: none;
-  background-color: #8B8B83;
   font-size: 40px;
   font-family: digital-clock-font;
   font-weight: bold;
@@ -33,26 +37,29 @@
  }
 
  @media (max-width: 1366px) {
-  .GameArea{
-    width: 400px;
-    height: 400px;
+  .Content{
+    width: 480px;
+    height: 480px;
   }
 
-  .Score{
-    width: 390px;
-    padding-top: 10px;
-    margin-top: 50px;
+  .GameArea{
+    width: 484px;
+    height: 524px;
   }
 }
 
 @media (max-width: 640px) {
-  .GameArea{
+  .Content{
     width: 340px;
     height: 340px;
   }
 
+  .GameArea{
+    width: 344px;
+    height: 374px;
+  }
+
   .Score{
-    width: 330px;
     font-size: 30px;
   }
 }

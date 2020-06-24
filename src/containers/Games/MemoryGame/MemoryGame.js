@@ -2,34 +2,37 @@ import React, { Component } from 'react'
 import classes from './MemoryGame.css'
 
 import Dashboard from './Dashboard/Dashboard'
-import FinishGame from '../../../components/FinishGame/FinishGame'
+import FinishGame from '../../../components/FinishGame/FinishGame';
 
 class MemoryGame extends Component {
 
-        counter = 0;
-        turn = true
-        cardCount = 24
-
-        generateCards =(length)=> {
-            const cards = []
-            let imgNum = 1
-            let id = 1
-            for(let i=0; i<length; i++){
-                cards.push( {img: `img_${imgNum}`, id: id, cardState: 'Back'})
-                id++
-                if(i%2===1){ imgNum++}
-            }
-            return cards
+    counter = 0;
+    turn = true
+    cardCount = 24
+    generateCards =(length)=> {
+        const cards = []
+        let imgNum = 1
+        let id = 1
+        for(let i=0; i<length; i++){
+            cards.push( {img: `img_${imgNum}`, id: id, cardState: 'Back'})
+            id++
+            if(i%2===1){ imgNum++}
         }
+        return cards
+    }
+    state={
+        time: null,
+        activeCards: [],
+        start: false,
+        stopTimer: true,
+        isFinished: false,
+        cardContent: this.generateCards(this.cardCount),
+        saveResults: false
+    }  
 
-        state={
-            time: null,
-            activeCards: [],
-            start: false,
-            stopTimer: true,
-            isFinished: false,
-            cardContent: this.generateCards(this.cardCount)
-        }  
+    saveResults = () => {
+        this.setState({saveResults: true,   start: false})
+    }
 
     cardFlipHandler = cardId => { 
        const cards = [...this.state.cardContent]
@@ -52,7 +55,7 @@ class MemoryGame extends Component {
 
     }
 
-    shuffleCards = () => { 
+    startGame = () => { 
         const cards = [...this.state.cardContent].sort(() => Math.random() - 0.5)
         cards.forEach(card => { card.cardState = 'Back'}) 
        
@@ -60,6 +63,7 @@ class MemoryGame extends Component {
                 stopTimer: false,
                 isFinished: false,
                 cardContent: cards,
+                saveResults: false,
                 start: true
                 })
             
@@ -80,13 +84,8 @@ class MemoryGame extends Component {
           }
 
         if(this.counter >= this.state.cardContent.length/2){
-            this.setState({stopTimer: true})
-            const timeout2 = window.setTimeout(()=>{
-                this.finishGame()
-                window.clearTimeout(timeout2)
-           }, 1200)
-        }
-       
+            this.finishGame()  
+           }
     }
     
     flipBackHandler = activeCards => {
@@ -106,9 +105,9 @@ class MemoryGame extends Component {
 
     finishGame = () => {
         this.setState({
+            stopTimer: true,
             isFinished: true,
             activeCards: [],
-            start:false
         })  
         this.counter = 0  
     }
@@ -119,19 +118,20 @@ class MemoryGame extends Component {
    
     render() {
         return (           
-            <div className={classes.MemoryGame}>                       
-               {
-               this.state.isFinished 
-               ? <FinishGame game={"Memory_Game"} startNew={this.shuffleCards} time={this.state.time} />
-               : <Dashboard
-                 stopTimer={this.state.stopTimer}
-                 cardList={this.state.cardContent}
-                 cardFlip={this.cardFlipHandler} 
-                 start={this.state.start}
-                 shuffleCards={this.shuffleCards}
-                 handleTime={this.handleTime}
-                 />
-                }
+            <div className={classes.MemoryGame}>  
+             {this.state.saveResults 
+             ?  <FinishGame game="Memory_Game" time={this.state.time}  startNew={this.startGame}/>
+             :  <Dashboard
+                stopTimer={this.state.stopTimer}
+                cardList={this.state.cardContent}
+                cardFlip={this.cardFlipHandler} 
+                start={this.state.start}
+                startGame={this.startGame}
+                handleTime={this.handleTime}
+                isFinished={this.state.isFinished}
+                saveResults={this.saveResults}
+                />
+             }                      
             </div>
 
         )
