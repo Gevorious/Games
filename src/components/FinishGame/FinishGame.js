@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classes from './FinishGame.css'
 import APIService  from '../../Services/API/APIService' 
+import InputHandler from '../../Services/InputDataHandelerService/InputDataHandelerService'
 
 import Button from '../UI/Button/Button'
 import Input from '../UI/Input/Input'
@@ -11,6 +12,7 @@ import { Redirect } from 'react-router'
 class FinishGame extends Component  {
 
     APIService = new APIService()
+    InputHandler = new InputHandler()
 
         state = {
             data: {
@@ -24,24 +26,18 @@ class FinishGame extends Component  {
      
     personInfoHandler = (e) => {
         e = e || window.event 
-        
-         const data = {...this.state.data}
-         let isValid = this.state.isValid
-         data.result = this.props.score || this.props.time
-        if(e.target.name ==='First Name:'){
-         data.firstName = e.target.value.trim()
-        }
-        if(e.target.name ==='Last Name:'){
-         data.lastName = e.target.value.trim()
-        }
 
-        isValid = Validate(data.firstName, data.lastName)
+         const data = {...this.state.data}
+         const result = this.props.score || this.props.time
+
+         this.InputHandler.inputHandler(e.target.name, e.target.value, result, data)
+        
+        let isValid = Validate(data.firstName, data.lastName)
         this.setState({ data, isValid })
     }
   
     sendData = () => {  
         const game = this.props.game 
-
         this.APIService.sendData(game, this.state.data).then(res=>{
             this.setState({showStats: res})
         })       

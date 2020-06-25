@@ -2,13 +2,15 @@ import axios from 'axios'
 
 export default class APIService  {
 
+    _APIUrlBase = 'https://fun-games-46704.firebaseio.com'
+
     async getData (game) { 
-        const res = await axios.get(`https://fun-games-46704.firebaseio.com/${game}.json`)      
+        const res = await axios.get(`${this._APIUrlBase}/${game}.json`)      
                      return await res.data           
                 }
 
     async sendData (game, data) {  
-        const res = await axios.post(`https://fun-games-46704.firebaseio.com/${game}.json`, data)
+        const res = await axios.post(`${this._APIUrlBase}/${game}.json`, data)
         .catch(error => {
             console.log(error)
             })

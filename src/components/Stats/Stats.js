@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import classes from './Stats.css'
 import Tab from '../UI/Tab/Tab'
 import APIService  from '../../Services/API/APIService' 
+import Organizer from '../../Services/DataOganizerServices/DataOganizerServices'
 
 export class Stats extends Component {
 
     game = this.props.location.state ? this.props.location.state.game : "Memory_Game"   
     APIService = new APIService()
+    Organizer = new Organizer()
     
     state={
         loading: true,
@@ -17,7 +19,6 @@ export class Stats extends Component {
 
     componentDidMount(){  
         this.getData(this.state.activeTab)
-        console.log('got here')
     }
 
     switchTab(tubName){ 
@@ -26,33 +27,16 @@ export class Stats extends Component {
         })
     }
 
-    async getData(game){ 
+    getData(game){ 
         this.APIService.getData(game).then(
             this.handleResponse
         )       
     }
 
-    sortResponse = leaders => {
-        if(isNaN(leaders[0].result)){
-            leaders.sort((a,b) => {
-                return  Number(a.result.replace(/:/g,'')) - Number(b.result.replace(/:/g,''))
-              })
-        }else {
-            leaders.sort((a,b) => {
-                return   b.result - a.result 
-              })
-        }
-    }
+    sortResponse = leaders => { this.Organizer.sort(leaders)  }
     
     handleResponse = data => {
-        const keys = Object.keys(data)
-        const leaders = []
-        if(data) {                
-           keys.map(key => {
-                const person = data[key]                  
-                return leaders.push(person)                   
-            })
-        }
+        const leaders = this.Organizer.transformData(data)
         this.sortResponse(leaders)
         this.setState({
             loading: false,
