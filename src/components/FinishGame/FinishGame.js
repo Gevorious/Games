@@ -46,12 +46,21 @@ class FinishGame extends Component  {
     render(){
         const result = this.props.time || this.props.score
 
+        if(result === undefined){
+            return <Redirect to="/" /> 
+        }
+
+        if(this.state.showStats){
+            return <Redirect to={{ pathname: "/stats/", state: {game: this.props.game} }} /> 
+        }
+
         return (
-            <>
-                {!this.state.showStats?   
-                (<div className={classes.FinishGame}>
+            <> 
+                <div className={classes.FinishGame}>
                     <h1>Game Over!</h1>
-                    <h2>Your result is <strong>{ result }</strong>{this.props.time ? ' s!' : ' pts!'}</h2>
+                    <h2>Your result is 
+                        <strong>{ result }</strong>{this.props.time ? ' s!' : ' pts!'}
+                    </h2>
                     <div className={classes.inputs}>
                         <Input name="First Name:"  onChange={this.personInfoHandler}  />
                         <Input name="Last Name:" onChange={this.personInfoHandler} />
@@ -60,10 +69,7 @@ class FinishGame extends Component  {
                             <Button onClick={this.sendData} disabled={!this.state.isValid}>Save Results</Button>
                         </div>
                     </div>
-
-                
-                </div>): <Redirect to={{ pathname: "/stats", state: {game: this.props.game} }} /> 
-                } 
+                </div>) 
             </>
     )}
     

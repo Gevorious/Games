@@ -1,5 +1,5 @@
 .Stats {
-    max-width: 650px;
+    min-width: 649px;
     margin: auto;
     margin-top: 100px;
     padding: 30px 30px;
@@ -8,37 +8,9 @@
     border-radius: 5px;
 }
 
-.TabsDiv {
-  display: flex;
-}
-
-.TabsDiv>div {
-  width: 33%;
-  padding-bottom: 10px;
-  font-size: 20px;
-}
-
 .Stats h1 {
     text-align: center;
     padding-bottom: 20px;
-}
-
-.Stats ol {
-    display: flex;
-    flex-direction: column;
-    max-width: 75%;
-    border: 1px solid #36362e;
-    border-top: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 40px 80px;
-    margin: auto;
-    font-weight: bold;
-    font-size: 18px;
-    background-color: #CDCDC1;
-    box-shadow: 0 8px 2px -8px rgba(0, 0, 0, 0.3);
-    color: #36362e;
-    text-shadow: 1px 1px 1px #36362e;
 }
 
 .Stats ol li{
@@ -49,65 +21,9 @@
     vertical-align: middle;
 }
 
-.Stats ol li[id= "0"]{
-   color:  #ffffff;
-}
-
-.Stats ol li[id ="1"]{
-   color:   #ffffff;
-}
-
-.Stats ol li[id ="2"]{
-   color: #ffffff;
-}  
-
-.Stats ol li strong{
-   float: right;
-   font-family: digital-clock-font; 
-   color: #36362e;
-   font-size: 24px;
-   font-weight: bold;
-}
-
-.loader {
-    display: block;
-    margin: auto;    
-}
-   
-.Stats .ldsring {
-    justify-content: center;
-    margin: auto;
-    display: block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-  }
-
-.Stats .ldsring div {
-    box-sizing: border-box;
-    display: inline-block;
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid #36362e;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #36362e transparent transparent transparent;
-  }
-
-.Stats .ldsring div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-.Stats .ldsring div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-.Stats .ldsring div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-
   @media (max-width: 1366px) {
     .Stats{
+      min-width: 540px;
       margin-top: 50px;
       padding: 20px;
     }
@@ -120,17 +36,11 @@
     .Stats ol li strong{
     font-size: 16px;
     }
-
-    .TabsDiv>div {
-      width: 33%;
-      padding-bottom: 10px;
-      font-size: 16px;
-    }
 }
 
   @media (max-width: 640px) {
     .Stats{
-    width: 340px;
+    min-width: 340px;
     padding: 10px 10px;
     }
     
@@ -155,30 +65,11 @@
       font-size: 16px;
   }
 
-  .TabsDiv>div {
-    width: 50%;
-    padding-bottom: 10px;
-    font-size: 12px;
-  }
-
   .Stats h1 {
     font-size: 18px;
     padding-bottom: 10px;
-}
+  }
 }
   
-  @font-face{
-      font-family:'digital-clock-font';
-      src: url('../../fonts/digital-7.ttf');
-  }
-
-  @keyframes lds-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
+  
   

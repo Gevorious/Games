@@ -3,12 +3,12 @@ import classes from './Tab.css'
 
 const Tab = props => {
     const cls = [classes.Tab]
-    if(props.tab === props.name){   
+    if(props.activeTab === props.name){   
             cls.push(classes.active)
     }
 
     return (   
-        <div tabIndex="-1" className={cls.join(' ')} onClick={props.onClick} >
+        <div  className={cls.join(' ')} onClick={props.onClick} >
             {props.children}
         </div>
     )

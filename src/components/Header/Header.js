@@ -8,8 +8,8 @@ const Header = props => {
     if(props.end){
         content  =  (<>
                         {props.text}
-                        <Button onClick={props.saveResults} disabled={props.disableSave}>Save Results</Button>
-                        <Button onClick={props.startGame}>Start New</Button>
+                        <Button onClick={props.saveResults} disabled={props.disableSave}>Save?</Button>
+                        <Button onClick={props.startGame}>New?</Button>
                     </>)
        
     } else {

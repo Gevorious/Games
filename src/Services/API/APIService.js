@@ -6,8 +6,9 @@ export default class APIService  {
 
     async getData (game) { 
         const res = await axios.get(`${this._APIUrlBase}/${game}.json`)      
-                     return await res.data           
+                     return await res.data            
                 }
+               
 
     async sendData (game, data) {  
         const res = await axios.post(`${this._APIUrlBase}/${game}.json`, data)

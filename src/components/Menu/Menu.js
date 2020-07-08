@@ -7,8 +7,8 @@ const Menu = () => {
         <div className={classes.Menu}>
         <ul>
         <Link to={"/"}><li>GAMES</li></Link>
-        <Link to={{pathname: "/stats", state: {game: 'Memory_Game'}}}><li>STATS</li></Link>
-        <Link to={"/about"}><li>ABOUT US</li></Link>
+        <Link to={{pathname: "/stats/", state: {game: 'Memory_Game'}}}><li>STATS</li></Link>
+        <Link to={"/about/"}><li>ABOUT US</li></Link>
         </ul>
     </div>
     )

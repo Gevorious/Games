@@ -10,7 +10,6 @@ html body {
     height: 100vh;
     width: 100%;
     background: linear-gradient(#838B83, #fff);
-    /* background-size: cover; */
     color: #36362e;
     font-family: Verdana, sans-serif;
 }

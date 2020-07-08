@@ -12,7 +12,7 @@
 }
 
 .Content {
-  min-height: 400px;
+  /* min-height: 400px; */
   display: flex;
   flex-wrap: wrap;
   border: 2px solid #36362e;

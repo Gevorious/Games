@@ -16,7 +16,18 @@ const MineField = ({cells,
                     win,
                     flaggedCount,
                     mineCount,
-                    saveResults}) => {
+                    saveResults, 
+                    rows,
+                    cols}) => {
+
+    const styleContent = {
+        width: cols*25 +'px',
+        height: rows*25 +'px'
+    }
+    const styleBoard = {
+        width: cols*25 + 4 +'px',
+        height: rows*25 + 44 +'px'
+    }
 
     let content = null
     let header = <Header text="" ></Header>
@@ -47,14 +58,9 @@ const MineField = ({cells,
         header = <Header text="Yay! You Won!" end={win} start={started} startGame={startGame} saveResults={ saveResults }></Header>
     }
     return (
-        
-            // <div className={classes.TimerDiv}>
-             
-            // </div>
-
-            <div className={classes.MineField}>
+            <div className={classes.MineField} style={styleBoard}>
                 { header }
-                <div className={classes.Content}>
+                <div className={classes.Content} style={styleContent}>
                 { content }
                 </div>
             </div>

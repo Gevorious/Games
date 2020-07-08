@@ -5,20 +5,23 @@ import FinishGame from '../../../components/FinishGame/FinishGame'
 
 class Minesweeper extends Component {
 
-    cellCount = 384
-    mineCount = 5
-    style='{bacgroundColor: "red"}'
+    rows = 16
+    cols = 24
+    cellCount = this.cols*this.rows
+    mineCount = Math.floor((this.cellCount)/5.4)
 
-    generateCells = (length) => {
+    generateCells = () => {
         let id = 0
         let x = 0
         let y = 1
         const cellArr = []
        
-        for(let i=0; i<length; i++){
- 
-            if ( x < 24 ){ x++ }
-                else { y++; x=1 }
+        for(let i=0; i<this.cellCount; i++){
+            if ( x < this.cols ){
+                 x++ 
+                }else {
+                     y++; x=1 
+                    }
 
             cellArr.push({ cordinates: [x,y], isMine: false, open: false, value: 0,  id: id++, marked: false })
         }
@@ -27,7 +30,7 @@ class Minesweeper extends Component {
 
     state={
         time: null,
-        cellArr: this.generateCells(this.cellCount),
+        cellArr: this.generateCells(),
         started: false,
         stopTimer: true,
         isFinished: false,
@@ -64,7 +67,7 @@ class Minesweeper extends Component {
 
     }
 
-    onClick = (id, e) => {
+    onClick = (id) => {
         let cells = JSON.parse(JSON.stringify(this.state.cellArr))
         const idx = cells.findIndex(el=> el.id === id)
         let counter = JSON.parse(JSON.stringify(this.state.flaggedCount))
@@ -134,7 +137,7 @@ class Minesweeper extends Component {
             cellIdx = cells.findIndex(el => el.cordinates[0] === x && el.cordinates[1] === y-1)
             neighbourCells.push(cells[cellIdx])
         }
-        if( x<24 && y>1 ){
+        if( x<this.cols && y>1 ){
             cellIdx = cells.findIndex(el => el.cordinates[0] === x+1 && el.cordinates[1] === y-1)
             neighbourCells.push(cells[cellIdx])
         }
@@ -142,19 +145,19 @@ class Minesweeper extends Component {
             cellIdx = cells.findIndex(el => el.cordinates[0] === x-1 && el.cordinates[1] === y)
             neighbourCells.push(cells[cellIdx])
         }
-        if(x<24){
+        if(x<this.cols){
             cellIdx = cells.findIndex(el => el.cordinates[0] === x+1 && el.cordinates[1] === y)
             neighbourCells.push(cells[cellIdx])
         }
-        if(x>1 && y<16){
+        if(x>1 && y<this.rows){
             cellIdx = cells.findIndex(el => el.cordinates[0] === x-1 && el.cordinates[1] === y+1)
             neighbourCells.push(cells[cellIdx])
         }
-        if(y<16){
+        if(y<this.rows){
             cellIdx = cells.findIndex(el => el.cordinates[0] === x && el.cordinates[1] === y+1)
             neighbourCells.push(cells[cellIdx])
         }
-        if(x<24 && y<16){
+        if(x<this.cols && y<this.rows){
             cellIdx = cells.findIndex(el => el.cordinates[0] === x+1 && el.cordinates[1] === y+1)
             neighbourCells.push(cells[cellIdx])
         }
@@ -198,7 +201,7 @@ class Minesweeper extends Component {
                     cells[idx].value++
                 }
             }
-            if( x<24 && y>1 ){
+            if( x<this.cols && y>1 ){
                 idx = cells.findIndex(cell => cell.cordinates[0] === x+1 && cell.cordinates[1] === y-1)
                 if(!cells[idx].isMine){
                     cells[idx].value++
@@ -210,26 +213,26 @@ class Minesweeper extends Component {
                     cells[idx].value++
                 }
             }
-            if( x<24 ){
+            if( x<this.cols ){
                 idx = cells.findIndex(cell => cell.cordinates[0] === x+1 && cell.cordinates[1] === y)
                 if(!cells[idx].isMine){
                     cells[idx].value++
                 }
             }
             
-            if( x>1 && y<16 ){
+            if( x>1 && y<this.rows ){
                 idx = cells.findIndex(cell => cell.cordinates[0] === x-1 && cell.cordinates[1] === y+1)
                 if(!cells[idx].isMine){
                     cells[idx].value++
                 }
             }
-            if( y<16 ){
+            if( y<this.rows ){
                 idx = cells.findIndex(cell => cell.cordinates[0] === x && cell.cordinates[1] === y+1)
                 if(!cells[idx].isMine){
                     cells[idx].value++
                 }
             }
-            if( x<24 && y<16 ){
+            if( x<this.cols && y<this.rows ){
                 idx = cells.findIndex(cell => cell.cordinates[0] === x+1 && cell.cordinates[1] === y+1)
                 if(!cells[idx].isMine){
                     cells[idx].value++
@@ -280,6 +283,8 @@ class Minesweeper extends Component {
                         onClick={ this.onClick }
                         handleTime={this.handleTime}
                         flaggedCount={flaggedCount}
+                        rows={this.rows}
+                        cols={this.cols}
                     />
                 }
               

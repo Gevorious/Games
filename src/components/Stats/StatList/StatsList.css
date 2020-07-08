@@ -1,0 +1,30 @@
+.StatsList {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+    border: 1px solid #36362e;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 40px 80px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #CDCDC1;
+    box-shadow: 0 8px 2px -8px rgba(0, 0, 0, 0.3);
+    color: #36362e;
+    text-shadow: 1px 1px 1px #36362e;
+}
+
+.StatsList li:nth-child(1){
+    color:  #ffffff;
+ }
+ 
+ .StatsList li:nth-child(2){
+    color:   #ffffff;
+ }
+ 
+ .StatsList li:nth-child(3){
+    color: #ffffff;
+ }  
+ 
