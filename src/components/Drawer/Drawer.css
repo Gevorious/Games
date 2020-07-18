@@ -24,7 +24,7 @@
     margin: 5px;
     margin-left: 10px;
     font-size: 25px;
-    color: rgb(255, 254, 247);
+    color: #041c2c;
     top: 0;
     left: 200px;
 }
@@ -38,12 +38,12 @@
     flex-direction: column;
     list-style-type: none;
     text-decoration: none;
-    color: #36362e;
+    color: #041c2c;
     user-select: none;  
 }
 
 .Drawer ul li:hover {
-    background: #8B8B83;
+    background: #BEBEBE;
     color: #fff;
  }
 

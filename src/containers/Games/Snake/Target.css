@@ -1,7 +1,6 @@
 .Target {
-    background: #fff;
+    background: #7da5c4;
     position: absolute;
     width: 2%;
-    height: 2%;
-    border: 1px solid  rgba(69, 82, 81, 0.76);
+    height: 2%
 }

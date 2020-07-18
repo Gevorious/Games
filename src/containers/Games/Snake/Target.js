@@ -6,7 +6,7 @@ const Target = props => {
     return (
         <div 
         className={classes.Target}
-        style = {{backgroundColor: '#fff', left: cordinate[0] +'%', top: cordinate[1] + '%'}}
+        style = {{ left: cordinate[0] +'%', top: cordinate[1] + '%'}}
         >    
         </div>
     )

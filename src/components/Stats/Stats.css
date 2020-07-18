@@ -3,8 +3,8 @@
     margin: auto;
     margin-top: 100px;
     padding: 30px 30px;
-    background-color: #FFFFF0;
-    border: 1px solid #36362e;
+    background-color:  #D3D3D3;
+    border: 10px solid #BEBEBE;
     border-radius: 5px;
 }
 
@@ -16,7 +16,7 @@
 .Stats ol li{
     padding-top: 10px;
     min-width: 400px;
-    border-bottom: 1px solid #36362e;
+    border-bottom: 1px solid #041c2c;
     padding: 5px;
     vertical-align: middle;
 }
@@ -38,27 +38,31 @@
     }
 }
 
-  @media (max-width: 640px) {
-    .Stats{
-    min-width: 340px;
-    padding: 10px 10px;
-    }
-    
-    .Stats ol {
-      min-width: 218px;
-      padding: 60px;
-      font-size: 12px;
-      margin: auto;
+@media (max-width: 640px) {
+  .Stats{
+  min-width: 340px;
+  padding: 0;
   }
-    
-    .ButtonDiv button{
-      font-size: 16px;
-    }
 
-    .Stats ol li{
-      padding-top: 5px;
-      min-width: 200px;
-      font-size: 12px;
+  .Stats h1 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  
+  .Stats ol {
+    min-width: 218px;
+    padding: 55px;
+    font-size: 12px;
+    margin: auto;
+  }
+  
+  .ButtonDiv button{
+    font-size: 16px;
+  }
+  .Stats ol li{
+    padding-top: 5px;
+    min-width: 200px;
+    font-size: 12px;
   }
 
     .Stats ol li strong{

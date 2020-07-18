@@ -1,51 +1,28 @@
 .MineField {
-    /* display: flex; */
     margin: auto;
     margin-top: 100px;
     width: 604px;
     height: 444px;
     border-radius: 0px 0px 5px 5px;
-    background-color: #8B8B83;
-    flex-wrap: wrap;
-   
+    background-color: #D3D3D3;
     perspective: 800px;
 }
 
 .Content {
-  /* min-height: 400px; */
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid #36362e;
+  border: 10px solid #BEBEBE;
 }
 
 button {
   margin: auto;
 }
-
-.TimerDiv {
-    width: 600px;
-    background-color: #8B8B83;
-    border: 2px solid #36362e;
-    border-bottom: none;
-    margin: auto;
-    
-    height: 40px;
-    overflow: hidden;
-    color:  #EEEEE0;
-    font-size: 32px;
-    font-weight: 600;
-  }
-  .Flags{
+  
+.Flags{
       float: right;
       margin-right: 10px;
-  }
+}
   
-
-  .TimerDiv>button{
-    margin-top: 5px;
-    font-size: 21px; 
-    float: right; 
-  }
 
 .MineField>button {
     margin: auto;

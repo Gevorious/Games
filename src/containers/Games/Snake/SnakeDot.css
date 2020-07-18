@@ -1,7 +1,6 @@
 .SnakeDot {
-    background: #000 ;
+    background: linear-gradient(45deg, #041c2c, #65849b) ;
     position: absolute;
     width: 2%;
     height: 2%;
-    border: 1px solid rgba(69, 82, 81, 0.76)
 }

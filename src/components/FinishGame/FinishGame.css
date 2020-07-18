@@ -3,8 +3,8 @@
     margin-top: 100px;
     width: 540px;
     min-height: 530px;
-    background-color: #FFFFF0;
-    border: 2px solid #fff;
+    background-color: #D3D3D3;
+   border: 10px solid #BEBEBE;
 }
 
 .FinishGame>h1,h2 {
@@ -18,20 +18,25 @@
 
 .FinishGame>h2>strong{
     font-weight: 900;
-    text-decoration: underline;
     font-family: digital-clock-font;
+    font-size: 30px;
 }
 
 .FinishGame button {
+    width: 155px;
+    height: 35px;
     margin-right: 10px;
-    height: 30px;
-    font-size: 20px;
+    font-size: 19px;
+}
+
+.FinishGame button:active {
+    font-size: 18px;
 }
 
 .inputs{
     display: flex;
-    background-color: #CDCDC1;
-    border: 1px solid #36362e;
+    background-color: #BEBEBE;
+    border: 5px solid #041c2c;
     flex-direction: column;
     width: 400px;
     padding: 30px;
@@ -54,6 +59,14 @@
         width: 300px;
         padding: 20px;
     }
+    .FinishGame button {
+        width: 135px;
+        height: 30px;
+        font-size: 16px;
+    }
+    .FinishGame button:active {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -69,7 +82,12 @@
     }
 
     .FinishGame button {
-        font-size: 16px;
+        width: 115px;
+        height: 30px;
+        font-size: 13px;
+    }
+    .FinishGame button:active {
+        font-size: 12px;
     }
 }
   

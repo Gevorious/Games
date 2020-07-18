@@ -25,15 +25,15 @@ const MineField = ({cells,
         height: rows*25 +'px'
     }
     const styleBoard = {
-        width: cols*25 + 4 +'px',
-        height: rows*25 + 44 +'px'
+        width: cols*25 + 20 +'px',
+        height: rows*25 + 60 +'px'
     }
 
     let content = null
     let header = <Header text="" ></Header>
 
     if (!started){
-            content = <Button onClick={ startGame }>Start</Button>
+            content = <Button onClick={ startGame } size='30'>Start</Button>
         } else{
             content = cells.map((cell, index) => { 
             return <Cell key={index} 

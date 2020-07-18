@@ -26,7 +26,7 @@ const GameArea = props => {
                    start={props.start} 
                    startGame={props.startGame} 
                    saveResults={ props.saveResults}>
-                 <div className={classes.Score}> {props.start ? `Score - ${props.score}` : null } </div>
+                 {props.start ? `Score: ${props.score}` : null } 
             </Header>
             <div className={classes.Content}>
                { content }

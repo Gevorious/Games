@@ -1,32 +1,45 @@
 .Header {
-    border: 2px solid #36362e;
-    background-color: #8B8B83;
+    border: 10px solid #BEBEBE;
+    background-color: #D3D3D3;
     border-bottom: none;
     height: 40px;
     padding-left: 10px;
     overflow: hidden;
-    color:  #EEEEE0;
-    font-size: 30px;
+    color:  #041c2c;
+    font-size: 40px;
+    font-family: digital-clock-font;
     font-weight: 600;
+}
+.Header>button {
+  width: 80px;
+  height: 35px;
+  font-size: 21px;
+  margin-right: 5px; 
+  margin-top: 2px;
+  float: right; 
+}
+.Header>button:active {
+  font-size: 20px; 
+}
+@media (max-width: 640px) {
+  .Header{
+    padding-left: 5px;
+    font-size: 30px;
+    height: 30px;
+    font-weight: 400;
   }
   .Header>button {
-    margin-right: 10px;
-    font-size: 21px; 
-    margin-top: 5px;
-    float: right; 
+    width: 70px;
+    height: 25px;
+    font-size: 16px; 
+    margin-right: 3px;
+    margin-top: 3px;
   }
-
-  @media (max-width: 640px) {
-    .Header{
-      padding-left: 5px;
-      font-size: 22px;
-      height: 30px;
-      font-weight: 400;
-    }
-
-    .Header>button {
-      font-size: 16px; 
-      margin-right: 3px;
-      margin-top: 3px;
-    }
+  .Header>button:active {
+    font-size: 15px; 
   }
+}
+@font-face {
+  font-family:'digital-clock-font';
+  src: url('../../fonts/digital-7.ttf');
+}

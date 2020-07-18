@@ -5,16 +5,17 @@
     padding: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 22px;
-    color: #36362e;
-    border-bottom: 1px solid #36362e;
+    font-weight: 600;
+    color: #041c2c;
+    border-bottom: 1px solid #041c2c;
     cursor: pointer;
     outline: none;
     user-select: none;
 }
 
 .active {
-    border: 1px solid #36362e;
-    background-color: #CDCDC1;
+    border: 1px solid #041c2c;
+    background-color: #BEBEBE;
     padding: 9px;
     border-bottom: none;
    }

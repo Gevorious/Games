@@ -13,13 +13,11 @@ export default class StatsOganizerServices {
     }
 
     transformData = data => {
-        const keys = Object.keys(data)
         const leaders = []
-        if(data) {                
-           keys.map(key => {
-                const person = data[key]                  
-                return leaders.push(person)                   
-            })
+        if(data) { 
+        for(let key in data){
+            leaders.push(data[key])
+            }
         }
 
       return leaders

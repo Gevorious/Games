@@ -8,7 +8,13 @@ const Cell = ({ cell, onToggleMarked, onClick, isFinished }) => {
     let style = {color: ''} 
 
     if(cell.open){
-          style = !cell.epicenter ? {backgroundColor: '#ccc'}:{backgroundColor: 'red'}
+          style = {
+                    backgroundColor: !cell.epicenter ? '#ccc' : 'red',
+                    borderTopColor: '#808080',
+                    borderLeftColor: '#808080',
+                    borderRightColor: '#fff',
+                    borderBottomColor: '#fff',
+                  }     
     }
 
     if(cell.isMine && cell.open && !cell.marked){
@@ -63,7 +69,7 @@ const Cell = ({ cell, onToggleMarked, onClick, isFinished }) => {
         <div className={classes.Cell }
              onContextMenu={ (e)=>onToggleMarked(cell.id, e)}
              onClick={!isFinished?(e)=>onClick(cell.id, e):null}
-             style={style}
+             style={ style }
              >
             {!cell.marked && !cell.isMine ? content : <i className={ clazz.join(' ') }  
                 style={ cell.marked ? {color: 'red'} : {color: 'black'} } ></i> }

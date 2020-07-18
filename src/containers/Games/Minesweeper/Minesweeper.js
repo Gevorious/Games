@@ -266,25 +266,25 @@ class Minesweeper extends Component {
         }
 
     render() {  
-        const {cellArr, stopTimer, isFinished, started, win, flaggedCount, saveResults }=this.state
+        const { cellArr, stopTimer, isFinished, started, win, flaggedCount, saveResults }=this.state
         return (
             <div className={classes.Minesweeper}>
-                {saveResults ? <FinishGame game={"Minesweeper"} startNew={this.startGame} time={this.state.time} />
+                {saveResults ? <FinishGame game={ "Minesweeper" } startNew={ this.startGame } time={ this.state.time } />
                      : <MineField 
-                        mineCount={this.mineCount}
-                        saveResults={this.saveResults}
-                        win={win}
-                        isFinished={isFinished}
+                        mineCount={ this.mineCount }
+                        saveResults={ this.saveResults }
+                        win={ win }
+                        isFinished={ isFinished }
                         started={ started }
-                        startGame={this.startGame}
+                        startGame={ this.startGame }
                         stopTimer={ stopTimer }
                         cells={ cellArr } 
                         onToggleMarked={ this.onToggleMarked } 
                         onClick={ this.onClick }
-                        handleTime={this.handleTime}
-                        flaggedCount={flaggedCount}
-                        rows={this.rows}
-                        cols={this.cols}
+                        handleTime={ this.handleTime }
+                        flaggedCount={ flaggedCount }
+                        rows={ this.rows }
+                        cols={ this.cols }
                     />
                 }
               

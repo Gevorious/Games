@@ -2,18 +2,16 @@
     display: flex;
     flex-direction: column;
     max-width: 75%;
-    border: 1px solid #36362e;
+    border: 1px solid #041c2c;
     border-top: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 40px 80px;
     margin: auto;
-    font-weight: bold;
     font-size: 18px;
-    background-color: #CDCDC1;
-    box-shadow: 0 8px 2px -8px rgba(0, 0, 0, 0.3);
-    color: #36362e;
-    text-shadow: 1px 1px 1px #36362e;
+    background-color: #BEBEBE;
+    color: #041c2c;
+    text-shadow: 1px 1px 1px #041c2c;
 }
 
 .StatsList li:nth-child(1){

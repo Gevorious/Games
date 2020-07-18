@@ -9,8 +9,8 @@ html body {
     flex-grow: 1;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(#838B83, #fff);
-    color: #36362e;
+    background: linear-gradient(#D3D3D3, #fff);
+    color: #041c2c;
     font-family: Verdana, sans-serif;
 }
 

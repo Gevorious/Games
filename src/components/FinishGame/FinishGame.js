@@ -58,9 +58,7 @@ class FinishGame extends Component  {
             <> 
                 <div className={classes.FinishGame}>
                     <h1>Game Over!</h1>
-                    <h2>Your result is 
-                        <strong>{ result }</strong>{this.props.time ? ' s!' : ' pts!'}
-                    </h2>
+                    <h2>Your result is <strong> { result } </strong>{this.props.time ? ' s!' : ' pts!'}</h2>
                     <div className={classes.inputs}>
                         <Input name="First Name:"  onChange={this.personInfoHandler}  />
                         <Input name="Last Name:" onChange={this.personInfoHandler} />

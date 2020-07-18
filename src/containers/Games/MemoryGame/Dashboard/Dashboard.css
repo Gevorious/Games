@@ -1,6 +1,6 @@
 .Dashboard {
-    width: 644px;
-    background-color: #8B8B83;
+    width: 660px;
+    background-color: #D3D3D3;
     margin: auto;
     margin-top: 100px;
     perspective: 800px;
@@ -10,7 +10,7 @@
   min-height: 345px;
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid #36362e;
+  border: 10px solid #BEBEBE;
 }
 
 button {
@@ -19,7 +19,7 @@ button {
 
 @media (max-width: 1366px) {
   .Dashboard{
-    width: 484px;
+    width: 500px;
   }
 
   .Content{
@@ -28,7 +28,7 @@ button {
 }
 @media (max-width: 480px) {
   .Dashboard{
-    width: 346px;
+    width: 362px;
   }
 
   .Content{
